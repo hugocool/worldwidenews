@@ -24,7 +24,7 @@ repos:
         rev: '19.10b0'
         hooks:
         -   id: black
-            language_version: python3.8
+            language_version: python3.7
     # Trailing white space removal includes other files as too but excluding ipynb files, also a large file check:
     -   repo: https://github.com/pre-commit/pre-commit-hooks
         rev: 'v2.4.0'
@@ -42,25 +42,25 @@ repos:
         -   id: flake8
             entry: flake8 --ignore=E501
             additional_dependencies: [flake8-typing-imports==1.6.0]
-    # Run a subset of tests marked "fast" for commits only:
-    -   repo: local
-        hooks:
-            -   id: tests
-                name: run tests
-                entry: pytest -v -m fast
-                language: python
-                additional_dependencies: [pre-commit, pytest]
-                always_run: true
-                pass_filenames: false
-                types: [python]
-                stages: [commit]
-    # Run all the tests, including slow ones, and stopping at first failure when pushing:
-    -   repo: local
-        hooks:
-            -   id: tests
-                name: run tests
-                entry: pytest -x
-                language: system
-                additional_dependencies: [pre-commit, pytest]
-                types: [python]
-                stages: [push]
+    # # Run a subset of tests marked "fast" for commits only:
+    # -   repo: local
+    #     hooks:
+    #         -   id: tests
+    #             name: run tests
+    #             entry: pytest -v -m fast
+    #             language: python
+    #             additional_dependencies: [pre-commit, pytest]
+    #             always_run: true
+    #             pass_filenames: false
+    #             types: [python]
+    #             stages: [commit]
+    # # Run all the tests, including slow ones, and stopping at first failure when pushing:
+    # -   repo: local
+    #     hooks:
+    #         -   id: tests
+    #             name: run tests
+    #             entry: pytest -x
+    #             language: system
+    #             additional_dependencies: [pre-commit, pytest]
+    #             types: [python]
+    #             stages: [push]
