@@ -32,6 +32,8 @@ aiohttp = "^3.7.4"
 SQLAlchemy = "^1.4.22"
 loguru = "^0.5.3"
 pydantic = {git = "https://github.com/PrettyWood/pydantic.git", rev = "field-property"}
+pypopulation = "^2020.3"
+funcy = "^1.16"
 
 
 [tool.poetry.dev-dependencies]
